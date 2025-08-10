@@ -22,7 +22,17 @@ export function sumToN(n) {
  * @returns `1` if n is 0
  */
 export function factorial(n) {
-  // TODO
+  if (typeof n !== "number") {
+    return NaN;
+  } else if (n < 0) {
+      return undefined;
+  }
+
+  let product = 1;
+  for (let i = 1; i <= n; i++) {
+    product *= i;
+  }
+  return product;
 }
 
 /**
@@ -32,7 +42,15 @@ export function factorial(n) {
  * @returns `[]` if n is 0 or negative
  */
 export function buildNArray(n) {
-  // TODO
+  if (typeof n !== "number") {
+    return null;
+  }
+  const numArr = [];
+
+  for (let i = 1; i <= n; i++) {
+    numArr.push(i);
+  }
+  return numArr;
 }
 
 /**
@@ -40,7 +58,17 @@ export function buildNArray(n) {
  * @returns {string} the longest string in `strings`
  */
 export function getLongestString(strings) {
-  // TODO
+
+  let longestString = '';
+
+  for (let i = 0; i < strings.length; i++) {
+    const currentString = strings[i];
+    if (currentString.length > longestString.length) {
+      longestString = currentString;
+    }
+  }
+
+  return longestString;
 }
 
 /**
@@ -48,7 +76,15 @@ export function getLongestString(strings) {
  * @returns {number} the number of students present
  */
 export function countPresent(attendance) {
-  // TODO
+  let studentsPresentCount = 0;
+
+  for (let i = 0; i < attendance.length; i++) {
+    const currentStudentIsPresent = attendance[i];
+    if (currentStudentIsPresent) {
+      studentsPresentCount++;
+    }
+  }
+  return studentsPresentCount;
 }
 
 /**
@@ -63,4 +99,39 @@ export function countPresent(attendance) {
  */
 export function complementDNA(dna) {
   // TODO
+  if (typeof dna !== "string") {
+    return null;
+  }
+
+  let complementaryDNA = "";
+
+  for (let index = 0; index < dna.length; index++) {
+    const currentDNA = dna[index];
+    
+    if (currentDNA === "A") {
+      complementaryDNA += "T";
+    } else if (currentDNA === "T") {
+      complementaryDNA += "A";
+    } else if (currentDNA === "C") {
+      complementaryDNA += "G";
+    } else if (currentDNA === "G") {
+      complementaryDNA += "C";
+    }
+
+    // switch (currentDNA) {
+    //   case "A":
+    //     complementaryDNA += "T";
+    //     break;
+    //   case "T":
+    //     complementaryDNA += "A";
+    //     break;
+    //   case "C":
+    //     complementaryDNA += "G";
+    //     break;
+    //   case "G":
+    //     complementaryDNA += "C";
+    //     break;
+    // }
+  }
+  return complementaryDNA;
 }
